@@ -1,1 +1,6 @@
-<p>products works!</p>
+<section class="products__container">
+  <app-product-card
+    *ngFor="let product of products"
+    [productData]="product"
+  ></app-product-card>
+</section>

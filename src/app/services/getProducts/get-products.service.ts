@@ -9,7 +9,7 @@ import { IProducts } from 'src/app/types';
 export class GetProductsService {
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<IProducts[]> {
-    return this.http.get<IProducts[]>('https://dummyjson.com/products');
+  getProducts(): Observable<IProducts> {
+    return this.http.get<IProducts>('https://dummyjson.com/products');
   }
 }

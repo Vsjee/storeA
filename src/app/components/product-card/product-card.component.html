@@ -1,0 +1,27 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ productData.title }}</mat-card-title>
+    <mat-card-subtitle>{{ productData.category }}</mat-card-subtitle>
+    <span class="example-spacer"></span>
+    <h2>${{ productData.price }}</h2>
+  </mat-card-header>
+  <picture>
+    <img
+      mat-card-image
+      src="{{ productData.images[0] }}"
+      alt="{{ productData.title }}"
+      class="product__img"
+    />
+  </picture>
+  <mat-card-content>
+    <h3><b>Description</b></h3>
+    <p>
+      {{ productData.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary">Detalles</button>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary">Agregar</button>
+  </mat-card-actions>
+</mat-card>

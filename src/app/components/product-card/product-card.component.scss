@@ -40,3 +40,14 @@ mat-card-content {
 .product__content--d {
   height: 40px;
 }
+
+// media queries
+
+@media screen and (max-width: 1250px) {
+  .example-card {
+    width: 300px;
+  }
+  .product__img {
+    height: 200px;
+  }
+}

@@ -16,11 +16,27 @@
   height: 400px;
   object-fit: cover;
 }
+mat-card-subtitle {
+  color: black;
+}
 
 mat-card-content {
   margin: 1rem 0;
 }
 
-mat-card-subtitle {
-  color: black;
+.product__title,
+.product__content {
+  overflow: hidden;
+}
+.product__title--t,
+.product__content--d {
+  width: 100%;
+  text-overflow: ellipsis;
+}
+.product__title--t {
+  height: 25px;
+}
+
+.product__content--d {
+  height: 40px;
 }

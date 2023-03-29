@@ -1,6 +1,8 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>{{ productData.title }}</mat-card-title>
+    <mat-card-title class="product__title">
+      <p class="product__title--t">{{ productData.title }}</p></mat-card-title
+    >
     <mat-card-subtitle>{{ productData.category }}</mat-card-subtitle>
     <span class="example-spacer"></span>
     <h2>${{ productData.price }}</h2>
@@ -11,11 +13,12 @@
       src="{{ productData.images[0] }}"
       alt="{{ productData.title }}"
       class="product__img"
+      title="{{ productData.title }}"
     />
   </picture>
-  <mat-card-content>
+  <mat-card-content class="product__content">
     <h3><b>Description</b></h3>
-    <p>
+    <p class="product__content--d">
       {{ productData.description }}
     </p>
   </mat-card-content>

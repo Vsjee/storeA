@@ -12,6 +12,15 @@ const routes: Routes = [
     path: `${publicRoutes.PRODUCTS}`,
     loadChildren: () => import('./modules').then((m) => m.ProductsModule),
   },
+  {
+    path: `${publicRoutes.PRODUCTS}/:${publicRoutes.PRODUCT_ID}`,
+    loadChildren: () => import('./modules').then((m) => m.ProductInfoModule),
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./utils').then((c) => c.NotFoundRouteComponent),
+  },
 ];
 
 @NgModule({

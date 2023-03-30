@@ -1,18 +1,44 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Store</span>
-  <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
+  <mat-toolbar-row>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Store</span>
+    <span class="example-spacer"></span>
+    <section class="menu">
+      <form class="form" *ngIf="!navToggle">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search a product</mat-label>
+          <input type="tel" matInput placeholder="Search" />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+      <a *ngIf="!navToggle">Products</a>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </section>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="navToggle">
+    <span class="example-spacer"></span>
+    <section class="form__res">
+      <form>
+        <mat-form-field class="example-full-width">
+          <mat-label>Search a product</mat-label>
+          <input type="tel" matInput placeholder="Search" />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+    </section>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
 </mat-toolbar>

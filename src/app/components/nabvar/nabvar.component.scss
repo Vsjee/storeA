@@ -4,7 +4,8 @@
 
 .mat-toolbar {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
+  padding-left: 10px;
 }
 
 .mat-toolbar.mat-primary {
@@ -15,15 +16,88 @@ mat-form-field {
   margin-top: 20px;
 }
 
+.mat-toolbar-row,
+.search__input {
+  transition: all 0.6s;
+}
+
+.search__input {
+  padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+  border-radius: 10px;
+  border: none;
+  height: 20px;
+}
+
 .menu {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  padding-left: 5%;
 }
 
 .form__res {
   display: grid;
   place-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    color: #c2185b;
+  }
+}
+
+.second__row {
+  height: 15px;
+  display: grid;
+  place-content: center;
+  display: none;
+
+  .second__row__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+
+    .second__row__list--item {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .a__routes {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .a__routes {
+    display: none;
+  }
+  .second__row {
+    display: contents;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .mat-toolbar-row {
+    padding: 0;
+  }
+
+  .search__input {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .search__input {
+    width: 100px;
+  }
 }

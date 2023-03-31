@@ -1,23 +1,22 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Store</span>
+    <span>
+      <a routerLink="/home"> Store </a>
+    </span>
     <span class="example-spacer"></span>
+    <input
+      type="text"
+      placeholder="Search"
+      (change)="changeIn($event)"
+      class="search__input"
+    />
+    <button type="submit" mat-icon-button color="primary" class="search__btn">
+      <mat-icon>search</mat-icon>
+    </button>
     <section class="menu">
-      <form class="form" *ngIf="!navToggle">
-        <mat-form-field class="example-full-width">
-          <mat-label>Search a product</mat-label>
-          <input type="text" matInput placeholder="Search" />
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-      </form>
-      <a *ngIf="!navToggle">Products</a>
+      <a class="a__routes" routerLink="/categories">Categories</a>
+      <a class="a__routes" routerLink="/products">Products</a>
+      <a class="a__routes" routerLink="/support">Support</a>
       <button
         mat-icon-button
         class="example-icon favorite-icon"
@@ -27,18 +26,13 @@
       </button>
     </section>
   </mat-toolbar-row>
-
-  <mat-toolbar-row *ngIf="navToggle">
-    <span class="example-spacer"></span>
-    <section class="form__res">
-      <form>
-        <mat-form-field class="example-full-width">
-          <mat-label>Search a product</mat-label>
-          <input type="text" matInput placeholder="Search" />
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-      </form>
-    </section>
-    <span class="example-spacer"></span>
+  <mat-toolbar-row class="second__row">
+    <ul class="second__row__list">
+      <li class="second__row__list--item">Categories</li>
+      <li class="second__row__list--item">Products</li>
+      <li class="second__row__list--item">Support</li>
+    </ul>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<!-- test -->

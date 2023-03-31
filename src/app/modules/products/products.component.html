@@ -1,3 +1,15 @@
+<section class="products__search">
+  <input
+    type="text"
+    placeholder="Search"
+    [formControl]="search"
+    (change)="handleSearch()"
+    class="search__input"
+  />
+  <button mat-icon-button type="button" (click)="handleSearch()">
+    <mat-icon>search</mat-icon>
+  </button>
+</section>
 <section class="products__container">
   <app-product-card
     *ngFor="let product of products"

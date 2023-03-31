@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductNotFoundDialogComponent } from 'src/app/components/product-not-found-dialog/product-not-found-dialog.component';
 import { GetProductsService } from 'src/app/services';
 import { IProduct } from 'src/app/types';
 
@@ -11,7 +13,10 @@ import { IProduct } from 'src/app/types';
 export class ProductsComponent implements OnInit {
   products: IProduct[] = [];
 
-  constructor(private productsService: GetProductsService) {}
+  constructor(
+    private productsService: GetProductsService,
+    public dialog: MatDialog
+  ) {}
 
   search = new FormControl('');
 
@@ -25,13 +30,21 @@ export class ProductsComponent implements OnInit {
           const filteredData = data.products.filter((item) =>
             item.title.toLowerCase().includes(currSearch.toLowerCase())
           );
-          this.products = filteredData;
+          if (filteredData.length === 0) {
+            this.openDialog();
+          } else {
+            this.products = filteredData;
+          }
           this.search.setValue('');
         } else {
           this.products = data.products;
         }
       }
     });
+  }
+
+  openDialog() {
+    this.dialog.open(ProductNotFoundDialogComponent);
   }
 
   ngOnInit(): void {

@@ -1,3 +1,20 @@
+.products__search {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 2rem;
+  align-items: center;
+  gap: 1rem;
+
+  .search__input {
+    width: 40%;
+    padding: 0.3rem 0.3rem 0.3rem 0.6rem;
+    border-radius: 10px;
+    border: 1px solid #000;
+    height: 20px;
+    transition: all 1s;
+  }
+}
+
 .products__container {
   display: grid;
   grid-auto-rows: 45rem;
@@ -12,5 +29,15 @@
   .products__container {
     grid-auto-rows: 32rem;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .products__search {
+    justify-content: center;
+
+    .search__input {
+      width: 70%;
+    }
   }
 }

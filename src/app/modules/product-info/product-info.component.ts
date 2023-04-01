@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { productInit, publicRoutes } from 'src/app/models';
-import { GetProductsService } from 'src/app/services';
+import { GetProductsService, SnackBarService } from 'src/app/services';
 import { IProduct } from 'src/app/types';
 
 @Component({
@@ -11,14 +11,18 @@ import { IProduct } from 'src/app/types';
 })
 export class ProductInfoComponent implements OnInit {
   product: IProduct = productInit;
+  filterCategory: IProduct[] = [];
   productImages: string[] = [];
   currProductImageIndex = 0;
   productId = '';
 
+  cuantity = '1';
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private productService: GetProductsService
+    private productService: GetProductsService,
+    private snackBar: SnackBarService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -43,6 +47,16 @@ export class ProductInfoComponent implements OnInit {
     this.currProductImageIndex = id;
   }
 
+  addToCart() {
+    if (this.cuantity !== 'na') {
+      const parseCuantity: number = parseInt(this.cuantity);
+      // add to global ngrx
+    } else {
+      //error and show a snackbar
+      this.snackBar.openSnackBar('Error, please select a cuantity', 'close');
+    }
+  }
+
   ngOnInit(): void {
     const currRoute = this.route.snapshot.paramMap.get(
       `${publicRoutes.PRODUCT_ID}`
@@ -53,6 +67,13 @@ export class ProductInfoComponent implements OnInit {
       this.productService.getProduct(this.productId).subscribe((data) => {
         this.product = data;
         this.productImages = data.images;
+      });
+
+      this.productService.getProducts().subscribe((data) => {
+        const filterCategory = data.products.filter(
+          (item) => item.category === this.product.category
+        );
+        this.filterCategory = filterCategory;
       });
     }
   }

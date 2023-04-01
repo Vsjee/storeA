@@ -62,3 +62,32 @@
   </article>
 </section>
 <mat-divider></mat-divider>
+<section class="description">
+  <ul class="description__list">
+    <li class="list__item">
+      <div class="item__header">
+        <img
+          src="{{ product.thumbnail }}"
+          alt="{{ product.title }}"
+          width="50"
+          height="50"
+          class="header__img"
+        />
+        <h2 style="display: inline">Description</h2>
+      </div>
+      <p>{{ product.description }}</p>
+    </li>
+    <li class="list__item">
+      <h2>Brand</h2>
+      <p>{{ product.brand }}</p>
+    </li>
+    <li class="list__item">
+      <h2>Category</h2>
+      <p>{{ product.category }}</p>
+    </li>
+    <li class="list__item">
+      <h2>rating</h2>
+      <p>{{ product.rating }}</p>
+    </li>
+  </ul>
+</section>

@@ -4,15 +4,7 @@
       <a routerLink="/home"> Store </a>
     </span>
     <span class="example-spacer"></span>
-    <input
-      type="text"
-      placeholder="Search"
-      (change)="changeIn($event)"
-      class="search__input"
-    />
-    <button type="submit" mat-icon-button color="primary" class="search__btn">
-      <mat-icon>search</mat-icon>
-    </button>
+    <app-global-search></app-global-search>
     <section class="menu">
       <a class="a__routes" routerLink="/categories">Categories</a>
       <a class="a__routes" routerLink="/products">Products</a>
@@ -40,5 +32,3 @@
     </ul>
   </mat-toolbar-row>
 </mat-toolbar>
-
-<!-- test -->

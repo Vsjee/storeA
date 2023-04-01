@@ -1,0 +1,20 @@
+<input
+  class="search-control"
+  type="text"
+  style="height: 30px"
+  placeholder="Search"
+  [(ngModel)]="searchText"
+  #searchbar
+/>
+<section class="products__search__list">
+  <ul *ngIf="searchText !== ''" class="search__list">
+    <li
+      *ngFor="let product of products | filterData : searchText"
+      class="list__item"
+    >
+      <a routerLink="/products/{{ product.id }}" (click)="closeSearchMenu()">
+        {{ product.title }}
+      </a>
+    </li>
+  </ul>
+</section>

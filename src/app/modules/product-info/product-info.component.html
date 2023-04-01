@@ -1,29 +1,32 @@
 <section class="container">
   <article class="product__carousel">
-    <picture class="carousel__pic">
-      <img
-        src="{{ productImages[currProductImageIndex] }}"
-        alt="{{ product.title }}"
-        title="{{ product.title }}"
-        class="carousel__img"
-      />
-    </picture>
-    <button
-      mat-icon-button
-      color="primary"
-      class="carousel__prev__btn"
-      (click)="goPrev()"
-    >
-      <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      color="primary"
-      class="carousel__next__btn"
-      (click)="goNext()"
-    >
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
+    <div class="carousel">
+      <button
+        mat-icon-button
+        color="primary"
+        class="carousel__prev__btn"
+        (click)="goPrev()"
+      >
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <picture class="carousel__pic">
+        <img
+          src="{{ productImages[currProductImageIndex] }}"
+          alt="{{ product.title }}"
+          title="{{ product.title }}"
+          class="carousel__img"
+        />
+      </picture>
+
+      <button
+        mat-icon-button
+        color="primary"
+        class="carousel__next__btn"
+        (click)="goNext()"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
     <div class="dots__container">
       <button
         mat-mini-fab
@@ -36,6 +39,26 @@
     </div>
   </article>
   <article class="add__product">
-    <h1>{{ product.title }}</h1>
+    <div class="head__product">
+      <h1 class="product__title">{{ product.title }} - ${{ product.price }}</h1>
+      <span class="product__stock"> stock {{ product.stock }} </span>
+    </div>
+    <div class="add__container">
+      <select
+        name="cuantity"
+        id="cuantity"
+        [(ngModel)]="cuantity"
+        class="product__select"
+      >
+        <option value="na">n/a</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button mat-flat-button color="primary" (click)="addToCart()">Add</button>
+    </div>
   </article>
 </section>
+<mat-divider></mat-divider>

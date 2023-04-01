@@ -11,6 +11,8 @@ import { IProduct } from 'src/app/types';
 })
 export class ProductInfoComponent implements OnInit {
   product: IProduct = productInit;
+  productImages: string[] = [];
+  currProductImageIndex = 0;
   productId = '';
 
   constructor(
@@ -19,6 +21,26 @@ export class ProductInfoComponent implements OnInit {
     private productService: GetProductsService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
+
+  goNext() {
+    if (this.productImages.length - 1 === this.currProductImageIndex) {
+      this.currProductImageIndex = 0;
+    } else {
+      this.currProductImageIndex += 1;
+    }
+  }
+
+  goPrev() {
+    if (this.currProductImageIndex === 0) {
+      this.currProductImageIndex = this.productImages.length - 1;
+    } else {
+      this.currProductImageIndex -= 1;
+    }
+  }
+
+  goSelectedImg(id: number) {
+    this.currProductImageIndex = id;
   }
 
   ngOnInit(): void {
@@ -30,6 +52,7 @@ export class ProductInfoComponent implements OnInit {
       this.productId = currRoute;
       this.productService.getProduct(this.productId).subscribe((data) => {
         this.product = data;
+        this.productImages = data.images;
       });
     }
   }

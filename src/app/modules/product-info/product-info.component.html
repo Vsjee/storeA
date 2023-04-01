@@ -1,2 +1,41 @@
-<p>product-info works!</p>
-<div>{{ product.title }}</div>
+<section class="container">
+  <article class="product__carousel">
+    <picture class="carousel__pic">
+      <img
+        src="{{ productImages[currProductImageIndex] }}"
+        alt="{{ product.title }}"
+        title="{{ product.title }}"
+        class="carousel__img"
+      />
+    </picture>
+    <button
+      mat-icon-button
+      color="primary"
+      class="carousel__prev__btn"
+      (click)="goPrev()"
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      color="primary"
+      class="carousel__next__btn"
+      (click)="goNext()"
+    >
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <div class="dots__container">
+      <button
+        mat-mini-fab
+        color="primary"
+        *ngFor="let img of productImages; index as i"
+        (click)="goSelectedImg(i)"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+  </article>
+  <article class="add__product">
+    <h1>{{ product.title }}</h1>
+  </article>
+</section>

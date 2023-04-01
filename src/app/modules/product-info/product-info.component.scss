@@ -1,3 +1,4 @@
+//product header
 .container {
   display: flex;
   justify-content: space-evenly;
@@ -47,6 +48,27 @@
   .add__container {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+//product info
+.description {
+  margin: 0 10%;
+
+  .description__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .item__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.3rem;
+
+    .header__img {
+      border-radius: 30px;
+    }
   }
 }
 

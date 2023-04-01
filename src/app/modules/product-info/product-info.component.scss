@@ -6,8 +6,11 @@
 }
 
 .product__carousel {
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
 
   .carousel__img {
     object-fit: cover;
@@ -16,19 +19,11 @@
     height: 300px;
   }
 
-  .carousel__prev__btn,
-  .carousel__next__btn {
-    position: relative;
-  }
-
-  .carousel__prev__btn {
-    right: 50px;
-    bottom: 175px;
-  }
-
-  .carousel__next__btn {
-    left: 490px;
-    bottom: 220px;
+  .carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
   }
 
   .dots__container {
@@ -44,11 +39,74 @@
 }
 
 .add__product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 50px;
+
+  .add__container {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 //media queries
 @media screen and (max-width: 900px) {
   .container {
     flex-direction: column;
+  }
+
+  .add__product {
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .add__container {
+    gap: 8rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product__carousel {
+    width: 100%;
+
+    .carousel {
+      margin-bottom: 0;
+    }
+
+    .carousel__img {
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    .carousel__prev__btn {
+      position: absolute;
+      left: 0;
+      bottom: 260px;
+    }
+
+    .carousel__next__btn {
+      position: absolute;
+      right: 0;
+      bottom: 260px;
+    }
+
+    .dots__container {
+      min-width: 100%;
+      max-width: 100%;
+      top: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .product__carousel {
+    .carousel__next__btn,
+    .carousel__prev__btn {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
   }
 }

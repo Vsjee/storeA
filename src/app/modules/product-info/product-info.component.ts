@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { productInit, publicRoutes } from 'src/app/models';
 import { GetProductsService } from 'src/app/services';
 import { IProduct } from 'src/app/types';
@@ -14,9 +14,12 @@ export class ProductInfoComponent implements OnInit {
   productId = '';
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private productService: GetProductsService
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     const currRoute = this.route.snapshot.paramMap.get(

@@ -8,6 +8,14 @@
 />
 <section class="products__search__list">
   <ul *ngIf="searchText !== ''" class="search__list">
+    <button
+      mat-icon-button
+      color="primary"
+      class="close__btn"
+      (click)="closeSearchMenu()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
     <li
       *ngFor="let product of products | filterData : searchText"
       class="list__item"

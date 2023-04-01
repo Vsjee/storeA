@@ -5,10 +5,19 @@ import { GetProductsService } from 'src/app/services';
 import { IProduct } from 'src/app/types';
 import { FilterPipe } from 'src/app/pipes';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, FilterPipe, AppRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    FilterPipe,
+    AppRoutingModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   selector: 'app-global-search',
   templateUrl: './global-search.component.html',
   styleUrls: ['./global-search.component.scss'],

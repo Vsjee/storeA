@@ -1,0 +1,32 @@
+.card {
+  margin: 0 3rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  a {
+    color: #000;
+    text-decoration: none;
+    transition: 0.4s ease-in-out;
+
+    &:hover {
+      color: #c2185b;
+    }
+  }
+
+  .card__product {
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+
+  .card__extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
+    overflow: hidden;
+
+    .card__title {
+      text-overflow: ellipsis;
+      height: 10px;
+    }
+  }
+}

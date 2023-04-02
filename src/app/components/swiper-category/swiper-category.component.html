@@ -1,0 +1,23 @@
+<owl-carousel-o [options]="customOptions">
+  <ng-template
+    carouselSlide
+    *ngFor="let product of productsByCategorie; index as i"
+  >
+    <article class="card">
+      <a routerLink="/products/{{ product.id }}">
+        <img
+          src="{{ product.images[0] }}"
+          alt="{{ product.title }}"
+          title="{{ product.title }}"
+          width="120"
+          height="250"
+          class="card__product"
+        />
+        <div class="card__extra">
+          <h1 class="card__title">{{ product.title }}</h1>
+          <button class="card__btn" mat-button color="primary">Details</button>
+        </div>
+      </a>
+    </article>
+  </ng-template>
+</owl-carousel-o>

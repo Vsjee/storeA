@@ -72,6 +72,17 @@
   }
 }
 
+//category carousel
+.category {
+  margin: 2rem 10%;
+  padding: 6rem 0;
+
+  .category__title {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+}
+
 //media queries
 @media screen and (max-width: 900px) {
   .container {
@@ -85,6 +96,10 @@
 
   .add__container {
     gap: 8rem;
+  }
+
+  .category {
+    margin: 2rem 5%;
   }
 }
 
@@ -118,6 +133,10 @@
       max-width: 100%;
       top: 0;
     }
+  }
+
+  .category {
+    margin: 2rem 10px;
   }
 }
 

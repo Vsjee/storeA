@@ -71,7 +71,9 @@ export class ProductInfoComponent implements OnInit {
 
       this.productService.getProducts().subscribe((data) => {
         const filterCategory = data.products.filter(
-          (item) => item.category === this.product.category
+          (item) =>
+            item.category === this.product.category &&
+            item.title !== this.product.title
         );
         this.filterCategory = filterCategory;
       });

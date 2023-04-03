@@ -28,5 +28,78 @@
       text-overflow: ellipsis;
       height: 10px;
     }
+
+    .card__price {
+      position: absolute;
+      text-decoration: none;
+      transition: 0.4s ease-in-out;
+      padding: 0.3rem;
+      color: #fff;
+    }
+
+    .card__price {
+      top: 0;
+      left: 49px;
+      background-color: #c2185b;
+
+      &:hover {
+        background-color: #f12a7a;
+      }
+    }
+  }
+}
+
+.banner {
+  margin: 0 3rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  .banner__product {
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    filter: brightness(50%);
+  }
+
+  .banner__extra {
+    .banner__title,
+    .banner__price,
+    .banner__discount {
+      position: absolute;
+      text-decoration: none;
+      transition: 0.4s ease-in-out;
+      padding: 0.3rem;
+      backdrop-filter: blur(15px);
+      color: #fff;
+    }
+    .banner__title {
+      top: 15px;
+      left: 60px;
+      background-color: #00000042;
+      border-radius: 10px;
+
+      &:hover {
+        color: #c2185b;
+      }
+    }
+
+    .banner__price {
+      bottom: 9px;
+      left: 49px;
+      background-color: #c2185b;
+
+      &:hover {
+        color: #000000;
+      }
+    }
+
+    .banner__discount {
+      top: 2px;
+      right: 51px;
+      background-color: #efff5c;
+      color: #000;
+
+      &:hover {
+        color: #000000;
+      }
+    }
   }
 }

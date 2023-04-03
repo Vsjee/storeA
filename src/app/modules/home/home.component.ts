@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GetProductsService } from 'src/app/services';
+import { featuredProductsKey } from 'src/app/models';
+import { FeaturedProductsService, GetProductsService } from 'src/app/services';
 import { IProduct } from 'src/app/types';
-import { filterByCategory } from 'src/app/utils';
+import { filterByCategory, getLocalStorage } from 'src/app/utils';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { filterByCategory } from 'src/app/utils';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  featureProd: IProduct[] = getLocalStorage<[]>(featuredProductsKey, []);
   smartphones: IProduct[] = [];
   laptops: IProduct[] = [];
   homeDecoration: IProduct[] = [];
@@ -16,9 +18,12 @@ export class HomeComponent implements OnInit {
   fragrances: IProduct[] = [];
   groceries: IProduct[] = [];
 
-  constructor(private productsService: GetProductsService) {}
+  constructor(
+    private productsService: GetProductsService,
+    private featureProducts: FeaturedProductsService
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.productsService.getProducts().subscribe((data) => {
       const dataList: IProduct[] = data.products;
       this.smartphones = filterByCategory(dataList, 'smartphones');
@@ -28,5 +33,9 @@ export class HomeComponent implements OnInit {
       this.fragrances = filterByCategory(dataList, 'fragrances');
       this.groceries = filterByCategory(dataList, 'groceries');
     });
+
+    if (this.featureProd.length === 0) {
+      this.featureProd = this.featureProducts.handleFeaturedProducts();
+    }
   }
 }

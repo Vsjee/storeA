@@ -3,7 +3,7 @@
     carouselSlide
     *ngFor="let product of productsByCategorie; index as i"
   >
-    <article class="card">
+    <article class="card" *ngIf="typeCarousel === 'category'">
       <a routerLink="/products/{{ product.id }}">
         <img
           src="{{ product.images[0] }}"
@@ -15,7 +15,27 @@
         />
         <div class="card__extra">
           <h1 class="card__title">{{ product.title }}</h1>
+          <span class="card__price">${{ product.price }}</span>
           <button class="card__btn" mat-button color="primary">Details</button>
+        </div>
+      </a>
+    </article>
+    <article class="banner" *ngIf="typeCarousel === 'banner'">
+      <a routerLink="/products/{{ product.id }}">
+        <img
+          src="{{ product.images[0] }}"
+          alt="{{ product.title }}"
+          title="{{ product.title }}"
+          width="120"
+          height="250"
+          class="banner__product"
+        />
+        <div class="banner__extra">
+          <h1 class="banner__title">{{ product.title }}</h1>
+          <span class="banner__price">${{ product.price }}</span>
+          <span class="banner__discount">
+            <b>{{ product.discountPercentage }}%</b></span
+          >
         </div>
       </a>
     </article>

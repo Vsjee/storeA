@@ -20,5 +20,6 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class SwiperCategoryComponent {
   @Input() productsByCategorie: IProduct[] = [];
+  @Input() typeCarousel? = '';
   customOptions = owlCustomOptions;
 }

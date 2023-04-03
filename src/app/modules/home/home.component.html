@@ -1,30 +1,50 @@
-<section class="category feature__product">a</section>
+<section class="category feature__product">
+  <h1 class="category__title">✨ Today Featured Products ✨</h1>
+  <app-swiper-category
+    [productsByCategorie]="featureProd"
+    typeCarousel="banner"
+  ></app-swiper-category>
+</section>
 
 <section class="category">
   <h1 class="category__title">smartphones</h1>
   <app-swiper-category
     [productsByCategorie]="smartphones"
+    typeCarousel="category"
   ></app-swiper-category>
 </section>
 <section class="category">
   <h1 class="category__title">laptops</h1>
-  <app-swiper-category [productsByCategorie]="laptops"></app-swiper-category>
+  <app-swiper-category
+    [productsByCategorie]="laptops"
+    typeCarousel="category"
+  ></app-swiper-category>
 </section>
 <section class="category">
   <h1 class="category__title">groceries</h1>
-  <app-swiper-category [productsByCategorie]="groceries"></app-swiper-category>
+  <app-swiper-category
+    [productsByCategorie]="groceries"
+    typeCarousel="category"
+  ></app-swiper-category>
 </section>
 <section class="category">
   <h1 class="category__title">skincare</h1>
-  <app-swiper-category [productsByCategorie]="skincare"></app-swiper-category>
+  <app-swiper-category
+    [productsByCategorie]="skincare"
+    typeCarousel="category"
+  ></app-swiper-category>
 </section>
 <section class="category">
   <h1 class="category__title">fragrances</h1>
-  <app-swiper-category [productsByCategorie]="fragrances"></app-swiper-category>
+  <app-swiper-category
+    [productsByCategorie]="fragrances"
+    typeCarousel="category"
+  ></app-swiper-category>
 </section>
 <section class="category">
   <h1 class="category__title">homeDecoration</h1>
   <app-swiper-category
     [productsByCategorie]="homeDecoration"
+    typeCarousel="category"
   ></app-swiper-category>
 </section>

@@ -4,4 +4,5 @@ export const publicRoutes: IRoutes = {
   HOME: 'home',
   PRODUCTS: 'products',
   PRODUCT_ID: 'id',
+  SUPPORT: 'support',
 };

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { productInit, publicRoutes } from 'src/app/models';
+import { Store } from '@ngrx/store';
+import { CartItem, productInit, publicRoutes } from 'src/app/models';
 import { GetProductsService, SnackBarService } from 'src/app/services';
+import { addCartItem } from 'src/app/state';
 import { IProduct } from 'src/app/types';
 
 @Component({
@@ -22,7 +24,8 @@ export class ProductInfoComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private productService: GetProductsService,
-    private snackBar: SnackBarService
+    private snackBar: SnackBarService,
+    private store: Store
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -50,9 +53,18 @@ export class ProductInfoComponent implements OnInit {
   addToCart() {
     if (this.cuantity !== 'na') {
       const parseCuantity: number = parseInt(this.cuantity);
-      // add to global ngrx
+      const productValue: number = parseCuantity * this.product.price;
+
+      const cartItem: CartItem = {
+        id: this.product.id,
+        title: this.product.title,
+        price: productValue,
+        brand: this.product.brand,
+        category: this.product.category,
+        cuantity: parseCuantity,
+      };
+      this.store.dispatch(addCartItem({ cartItem: cartItem }));
     } else {
-      //error and show a snackbar
       this.snackBar.openSnackBar('Error, please select a cuantity', 'close');
     }
   }

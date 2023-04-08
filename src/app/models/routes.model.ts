@@ -5,4 +5,5 @@ export const publicRoutes: IRoutes = {
   PRODUCTS: 'products',
   PRODUCT_ID: 'id',
   SUPPORT: 'support',
+  CART: 'cart',
 };

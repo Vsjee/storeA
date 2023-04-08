@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules').then((m) => m.SupportModule),
   },
   {
+    path: `${publicRoutes.CART}`,
+    loadChildren: () => import('./modules').then((m) => m.CartModule),
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('./utils').then((c) => c.NotFoundRouteComponent),
